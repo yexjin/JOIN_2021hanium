@@ -1,0 +1,42 @@
+version: "3.1"
+
+services:
+  join_db:
+    container_name: join_db
+    image: mariadb
+    environment: # -e 옵션
+      - TZ=Asia/Seoul
+      - MYSQL_DATABASE=mydb
+      - MYSQL_ROOT_PASSWORD=join1234
+    ports:
+      - "13306:3306"
+    volumes:
+      - ./Database/mysql:/var/lib/mysql # -v 옵션 (다렉토리 마운트 설정)
+
+  join_webserver:
+    container_name: join_webserver
+    image: docker.io/nginx:1.13-alpine
+    environment:
+      - TZ=Asia/Seoul
+    volumes:
+      - ./Nginx/nginx.conf:/etc/nginx/nginx.conf:ro
+      - ./Nginx/mime.types:/etc/nginx/mime.types:ro
+      - ./professor/build:/join/professor:ro
+      - ./student/build:/join/student:ro
+    ports:
+      - "8080:8080"
+      - "8081:8081"
+        # restart: always
+    depends_on:
+    - join_server
+
+  join_server:
+    container_name: join_server
+    build: ./server
+    image: join_server:1.2
+    environment:
+      - TZ=Asia/Seoul
+    ports:
+      - "3000:3000"
+    depends_on:
+      - join_db

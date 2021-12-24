@@ -1,0 +1,14 @@
+@BASE_URL=http://localhost:3000/api/v1
+
+GET {{BASE_URL}}/comments/1?skip=0&limit=6
+
+POST {{BASE_URL}}/comments
+Content-Type: application/json
+
+{
+    "memberId" : 1,
+    "assignmentId" : 1,
+    "contents": "안녕하세요1234"
+}
+
+DELETE {{BASE_URL}}/comments/fdb32a5e-b155-473b-bc7a-6851101fb20a

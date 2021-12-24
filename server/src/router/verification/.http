@@ -1,0 +1,39 @@
+@BASE_URL=http://localhost:3000/api/v1
+
+POST {{BASE_URL}}/verify/sms
+Content-Type: application/json
+
+{
+    "name" : "엄유상",
+    "mobile" : "010-4591-8177"
+}
+
+###
+
+POST {{BASE_URL}}/verify/sms/verify
+Content-Type: application/json
+
+{
+    "name": "엄유상",
+    "mobile": "010-4591-8177",
+    "verifyCode": "758700"
+}
+
+###
+
+POST {{BASE_URL}}/verify/email
+Content-Type: application/json
+
+{
+    "email": "dbtkd1801@gmail.com"
+}
+
+###
+
+POST {{BASE_URL}}/verify/email/verify
+Content-Type: application/json
+
+{
+    "email": "dbtkd1801@gmail.com",
+    "verifyCode": "831761"
+}

@@ -1,0 +1,5 @@
+@BASE_URL=http://localhost:3000/api/v1
+
+GET {{BASE_URL}}/report/byTeam/vnyorr0l
+
+GET {{BASE_URL}}/report/byAssignment/vnyorr0l

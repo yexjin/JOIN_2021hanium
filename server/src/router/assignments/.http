@@ -1,0 +1,158 @@
+@BASE_URL=http://localhost:3000/api/v1
+
+POST {{BASE_URL}}/assignments
+Content-Type: application/json
+
+{
+    "name" : "과제 테스트3",
+    "content" : "과제 테스트 내용6",
+    "progress" : "1",
+    "point" : "100",
+    "startDate" : "2021-08-04 14:39:22",
+    "endDate" : "2021-08-04 14:39:22",
+    "classCode" : "AZSVBFV",
+    "classCode" : "AZXCSQ",
+    "classCode" : "AXBVRFW",
+    "teams":[]
+}
+
+###
+
+PUT {{BASE_URL}}/assignments/1
+Content-Type: application/json
+
+{
+    "name" : "과제 테스트 수정",
+    "content" : "과제 테스트 내용 수정",
+    "progress" : "1",
+    "point" : "100",
+    "startDate" : "2021-08-04 14:39:22",
+    "endDate" : "2021-08-04 14:39:22",
+    "classCode" : "1",
+    "teams":[1,2,3]
+}
+
+###
+
+GET {{BASE_URL}}/assignments
+
+###
+
+GET {{BASE_URL}}/assignments/byTeam/1
+
+###
+
+GET {{BASE_URL}}/assignments/byProfessor/3c428aa1-fe4c-4664-8abe-8d927358c443
+###
+GET {{BASE_URL}}/assignments?assignmentId=89e5be34-cc3d-4969-9589-08bdf75f970c?teamId=1
+
+###
+
+GET {{BASE_URL}}/assignments/team/89e5be34-cc3d-4969-9589-08bdf75f970c
+
+###
+GET {{BASE_URL}}/assignments/1e927a41-edf4-4f01-b8c9-823b09e4d687
+
+###
+
+DELETE {{BASE_URL}}/assignments/cd09497b-9cb4-4fef-8e90-9f59cb9e86e4
+
+###
+POST {{BASE_URL}}/assignments
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="name"
+
+과제 테스트7
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="content"
+
+과제 테스트 내용7
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="progress"
+
+1
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="point"
+
+100
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="startDate"
+
+2021-08-04 14:39:22
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="endDate"
+
+2021-08-04 14:39:22
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="classCode"
+
+AZSVBFV
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="teams"
+
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="teams"
+
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="image"; filename="taxonomy.jpg"
+Content-Type: image/jpg
+
+< ../../../testdata/taxonomy.jpg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+###
+
+PUT {{BASE_URL}}/assignments/1
+Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
+
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="name"
+
+과제 수정 테스트123
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="content"
+
+과제 수정 테스트 내용123
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="progress"
+
+1
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="point"
+
+100
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="startDate"
+
+2021-08-04 14:39:22
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="endDate"
+
+2021-08-04 14:39:22
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="classCode"
+
+1
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="teams"
+
+[2,3]
+------WebKitFormBoundary7MA4YWxkTrZu0gW
+Content-Disposition: form-data; name="image"; filename="taxonomy.jpg"
+Content-Type: image/jpg
+
+< ../../../testdata/taxonomy.jpg
+------WebKitFormBoundary7MA4YWxkTrZu0gW--
+
+###
+
+POST {{BASE_URL}}/assignments/submit/89e5be34-cc3d-4969-9589-08bdf75f970c
+Content-Type: application/json
+
+{
+    "contents": "과제 내용 테스트"
+}

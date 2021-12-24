@@ -1,0 +1,29 @@
+@BASE_URL=http://localhost:3000/api/v1
+
+GET {{BASE_URL}}/teams/6axz4e8z
+
+GET {{BASE_URL}}/teams/2
+
+POST {{BASE_URL}}/teams/random/ui9qg10z
+Content-Type: application/json
+
+{
+    "teamNum" : "3",
+    "studentNum" : "1"
+}
+
+POST {{BASE_URL}}/teams/students
+Content-Type: application/json
+
+[
+    {
+        "memberId": "1",
+        "teamId" : "1" 
+    },
+    {
+        "memberId": "2",
+        "teamId" : "1" 
+    }
+]
+
+DELETE {{BASE_URL}}/comments/fdb32a5e-b155-473b-bc7a-6851101fb20a
